@@ -105,7 +105,7 @@ router.patch("/appointment/:id", AuthMiddlware, async (req, res) => {
 router.delete("/appointment/:id", AuthMiddlware, async (req, res) => {
     const { id } = req.params;
     try {
-        const deleteAppointment = await Appointment.findByIdAndUpdate(id);
+        const deleteAppointment = await Appointment.findByIdAndDelete(id);
         res.json({ deleteAppointment })
     } catch (error) {
         res.status(404).json({ msg: "Something went wrong", error })
